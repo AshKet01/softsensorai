@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
-function useBookSearch(query, pageNumber) {
+function useBookSearch(pageNumber) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false);
-    const [books, setBooks] = useState([])
+    const [products, setProducts] = useState([])
     const [hasMore, setHasMore] = useState(false)
 
-    useEffect(() => {
-        setBooks([])
-    }, [query])
+    // useEffect(() => {
+    //     setProducts([])
+    // }, [query])
 
     useEffect(() => {
         setLoading(true)
@@ -18,14 +18,14 @@ function useBookSearch(query, pageNumber) {
         axios({
             method: 'GET',
             url: 'http://localhost:4001/api/products/all',
-            params: { q: query, page: pageNumber },
+            params: { page: pageNumber },
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(ress => {
 
-            setBooks(prevBooks => {
-                return [...new Set([...prevBooks, ...ress.data.docs.map(b => b.title)])]
+            setProducts(prevProducts => {
+                return [...new Set([...prevProducts, ...ress.data])]
             })
-            setHasMore(ress.data.docs.length > 0)
+            setHasMore(ress.data.length > 0)
             setLoading(false)
             console.log(ress.data);
         }).catch(err => {
@@ -33,9 +33,9 @@ function useBookSearch(query, pageNumber) {
             setError(true)
         })
         return () => cancel()
-    }, [query, pageNumber])
+    }, [pageNumber])
 
-    return { loading, error, books, hasMore }
+    return { loading, error, products, hasMore }
 }
 
 export default useBookSearch
