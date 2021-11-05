@@ -23,7 +23,6 @@ function useBookSearch(pageNumber) {
             })
             setHasMore(ress.data.length > 0)
             setLoading(false)
-            console.log(ress.data);
         }).catch(err => {
             if (axios.isCancel(err)) return
             setError(true)

@@ -1,26 +1,26 @@
 import React from 'react'
 
 
-function Card({ myref }) {
+function Card({ product }) {
     return (
-        <div ref={myref} className="product-card">
+        <div className="product-card">
             <div className="badge">Hot</div>
             <div className="product-tumb">
-                <img src="https://i.imgur.com/xdbHo4E.png" alt="" />
+                <img src={product.image} alt="" />
             </div>
             <div className="product-details">
                 <span className="product-catagory">Women,bag</span>
-                <h4><a href="#">Women leather bag</a></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+                <h4><a href="#">{product.title}</a></h4>
+                <p>{product.description}</p>
                 <div className="product-bottom-details">
-                    <div className="product-price"><small>$96.00</small>$230.99</div>
+                    <div className="product-price"><small>$96.00</small>${product.price}</div>
                     <div className="product-links">
-                        <a href="#"><i className="fa fa-heart"></i></a>
-                        <a href="#"><i className="fa fa-shopping-cart"></i></a>
+                        {/* <a href="#"><i className="fa fa-heart"></i></a> */}
+                        <button className="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

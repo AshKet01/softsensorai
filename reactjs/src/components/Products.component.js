@@ -23,9 +23,9 @@ function Products() {
             <div className="card-deck">
                 {products.map((product, index) => {
                     if (products.length === index + 1) {
-                        return <div ref={lastBookElementRef}><Card /></div>
+                        return <div ref={lastBookElementRef}><Card product={product} /></div>
                     } else {
-                        return <div><Card /></div>
+                        return <div><Card product={product} /></div>
                     }
                 })}
                 <div>{loading && "Loading..."}</div>
