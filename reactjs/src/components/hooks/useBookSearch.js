@@ -7,10 +7,6 @@ function useBookSearch(pageNumber) {
     const [products, setProducts] = useState([])
     const [hasMore, setHasMore] = useState(false)
 
-    // useEffect(() => {
-    //     setProducts([])
-    // }, [query])
-
     useEffect(() => {
         setLoading(true)
         setError(false)
