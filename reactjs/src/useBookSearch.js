@@ -17,10 +17,11 @@ function useBookSearch(query, pageNumber) {
         let cancel
         axios({
             method: 'GET',
-            url: 'http://openlibrary.org/search.json',
+            url: 'http://localhost:4001/api/products/all',
             params: { q: query, page: pageNumber },
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(ress => {
+
             setBooks(prevBooks => {
                 return [...new Set([...prevBooks, ...ress.data.docs.map(b => b.title)])]
             })

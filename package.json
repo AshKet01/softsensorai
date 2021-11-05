@@ -13,7 +13,9 @@
   "author": "mayur_bhowad",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "concurrently": "^6.3.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
