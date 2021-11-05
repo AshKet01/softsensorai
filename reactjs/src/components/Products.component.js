@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useCallback } from 'react';
 import Card from './Card.component';
-import useBookSearch from './hooks/useBookSearch';
+import useBookSearch from '../hooks/useBookSearch';
 
 function Products() {
     const [pageNumber, setPageNumber] = useState(1);

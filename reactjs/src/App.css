@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #eaedff;
 }
 
 code {
@@ -26,8 +27,33 @@ a
     text-decoration: none;
 }
 
+li{
+  list-style: none;
+}
+
+.navbar{
+  width: 100%;
+  padding: 1rem 3rem;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  z-index: 1;
+}
+
+.nav-list ul{
+  display: flex;
+}
+
+.nav-list ul li{
+  margin: 0 10px;
+}
+
+
 .card-deck{
   width: 100%;
+  padding-top: 6rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto; 
