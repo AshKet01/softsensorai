@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "start:client": "cd reactjs && yarn start",
+    "install:client": "npm i --prefix reactjs",
+    "start:client": "npm start --prefix reactjs",
     "start:api": "nodemon src/index.js",
     "start:dev": "concurrently \"yarn start:api\" \"yarn start:client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix reactjs && npm run build --prefix reactjs"
   },
   "author": "mayur_bhowad",
   "license": "ISC",
