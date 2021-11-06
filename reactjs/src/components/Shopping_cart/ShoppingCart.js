@@ -1,5 +1,4 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from '../common/Spinner';
@@ -20,8 +19,11 @@ function ShoppingCart(props) {
         }
     }
 
+    const [cartSubTotalPrice, setCartSubTotalPrice] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
+
     return (
-        <div>
+        <div className='shopping-cart' >
             <div className="small-container cart-title">
                 <div className="row row-2">
                     <h2 className="title-2">Your Shopping Cart</h2>
@@ -48,7 +50,7 @@ function ShoppingCart(props) {
                         <tbody>
                             <tr>
                                 <td>SubTotal</td>
-                                <td>Rs. 123/-</td>
+                                <td>Rs. {cartSubTotalPrice}/-</td>
                             </tr>
                             <tr>
                                 <td>Tax</td>
@@ -56,7 +58,7 @@ function ShoppingCart(props) {
                             </tr>
                             <tr>
                                 <td>Total</td>
-                                <td>Rs. 213/-</td>
+                                <td>Rs. {totalPrice}/-</td>
                             </tr>
                         </tbody>
                     </table>
@@ -64,9 +66,9 @@ function ShoppingCart(props) {
             </div>
             <div className="checkOut">
                 {checkoutBtn ? (
-                    <Link to="/user_address" className="btn" >Check Out</Link>
+                    <Link to="#" className="btn" >Check Out</Link>
                 ) : (
-                    <Link to="/products" className="btn" >Shop Now</Link>
+                    <Link to="/" className="btn" >Shop Now</Link>
                 )}
 
             </div>
@@ -74,10 +76,6 @@ function ShoppingCart(props) {
     )
 
 }
-
-// ShoppingCart.propTypes = {
-//     cart: PropTypes.object.isRequired,
-// }
 
 const mapStateToProps = state => ({
     cart: state.cart

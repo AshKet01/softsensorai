@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import icons from '../../assets/images/sprite.svg';
 
-function Navbar() {
+function Navbar(props) {
+    const { cartItems } = props.cart;
     const [isMobMenuOpen, setIsMobMenuOpen] = useState(false);
 
     return (
@@ -65,7 +67,6 @@ function Navbar() {
                     <div className="nav__icons">
                         <a href="#" className="icon__item">
                             <svg>
-                                {/* <use xlinkHref="../../assets/images/sprite.svg#icon-user"></use> */}
                                 <use xlinkHref={`${icons}#icon-user`}></use>
                             </svg>
                         </a>
@@ -80,7 +81,7 @@ function Navbar() {
                             <svg>
                                 <use xlinkHref={`${icons}#icon-shopping-basket`}></use>
                             </svg>
-                            <span id="cart__total">0</span>
+                            <span id="cart__total">{cartItems ? cartItems.length : '0'}</span>
                         </Link>
                     </div>
                 </nav>
@@ -89,4 +90,8 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+const mapStateToProps = state => ({
+    cart: state.cart
+})
+
+export default connect(mapStateToProps, {})(Navbar);

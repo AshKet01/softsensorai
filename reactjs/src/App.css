@@ -82,6 +82,26 @@ button{
 
 /*
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Spinner1
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  */
+
+.spinner1{
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Navigation
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   */
@@ -446,6 +466,19 @@ button{
   background: var(--yellow);
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .card-deck{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .card-deck{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media only screen and (max-width: 568px) {
   .card-deck{
     padding: 0 1rem;
@@ -457,7 +490,6 @@ button{
     /* row-gap: 15px; */
   }
 }
-
 
   /*
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -497,6 +529,9 @@ button{
       transition: background .5s;
   }
     
+  .shopping-cart{
+    background: #fff;
+  }
 
 .cart-title{
   padding-top: 10rem;
@@ -727,22 +762,6 @@ padding: 0 16px;
     margin: 0 10px;
 }
 
-/* .address .btn, */
-/* .address .btn {
-  background-color: var(--orange);
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.address .btn:hover {
-  background-color: #563434;
-} */
 
 .address hr {
   border: 1px solid lightgrey;

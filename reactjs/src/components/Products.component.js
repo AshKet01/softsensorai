@@ -2,6 +2,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import Card from './Card.component';
 import useBookSearch from '../hooks/useBookSearch';
+import Spinner1 from './common/Spinner1';
 
 function Products() {
     const [pageNumber, setPageNumber] = useState(1);
@@ -18,6 +19,7 @@ function Products() {
         })
         if (node) observer.current.observe(node)
     }, [loading, hasMore])
+
     return (
         <>
             <div className="card-deck">
@@ -28,7 +30,10 @@ function Products() {
                         return <div><Card product={product} /></div>
                     }
                 })}
-                <div>{loading && "Loading..."}</div>
+
+                <div className="product-card" >
+                    <div>{loading && <Spinner1 />}</div>
+                </div >
                 <div>{error && "Error..."}</div>
             </div>
         </>

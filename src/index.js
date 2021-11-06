@@ -9,13 +9,9 @@ const PORT = process.env.PORT || 4001;
 app.use(cors());
 app.use(express.urlencoded({ extends: false }));
 
-app.get('/', (req, res) => {
-    res.send('this is root route!')
-})
-
 app.get('/api/products/all', async (req, res) => {
     const { page } = req.query;
-    const pageSize = 5;
+    const pageSize = 1;
     const apiUrl = `https://fakestoreapi.com/products`;
     let prod = await axios.get(apiUrl);
 
@@ -25,5 +21,14 @@ app.get('/api/products/all', async (req, res) => {
 
     return res.status(200).json(products)
 })
+
+if (process.env.NODE_ENV === 'production') {
+    //set static folder
+    app.use(express.static('reactjs/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'reactjs', 'build', 'index.html'));
+    });
+}
 
 app.listen(PORT, () => logger.info(`server is up and rolling...`));

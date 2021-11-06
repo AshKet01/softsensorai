@@ -25,8 +25,6 @@ function App() {
               <Route path="/" element={<Products />} />
               <Route path="/cart" element={<ShoppingCart />} />
             </Routes>
-            {/* <Products /> */}
-            {/* <ShoppingCart /> */}
           </Router>
         </PersistGate>
       </Provider>

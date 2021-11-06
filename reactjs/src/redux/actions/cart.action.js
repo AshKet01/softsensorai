@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import { LOADING_CART, ADD_TO_CART, INCREASE_QUANTITY, DECREASE_QUANTITY, REMOVE_PRODUCT, REMOVE_FROM_CART } from "../types"
 
 
@@ -10,9 +10,6 @@ export const addToCartMain = (product) => dispatch => {
         type: ADD_TO_CART,
         payload: { productNumber: product.id, product: product, itemCount: 1 }
     })
-    // console.log(productNumber);
-    // axios.get(`/api/product/${productNumber}`).then(productDetails => {
-    // })
 }
 
 //REMOVE ITEM FROM CART

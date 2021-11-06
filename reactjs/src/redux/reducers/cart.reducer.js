@@ -6,12 +6,6 @@ const initialState = {
 }
 
 
-// {
-//     productNumber: 1111,
-//     productDetails: { productNumber: 1111, productImages: ["https://firebasestorage.googleapis.com/v0/b/reactimgupload-be04a.appspot.com/o/30iaua06r7n?alt=media&token=ddbc9303-6001-49e8-bbcb-c3496c670ae0"] },
-//     itemCount: 3
-// }
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action) => {
     // console.log(action.payload);
