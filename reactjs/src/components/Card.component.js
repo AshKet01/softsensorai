@@ -1,7 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { addToCartMain } from '../redux/actions/cart.action';
 
 
-function Card({ product }) {
+function Card(props) {
+    const { product } = props;
+
+    function addToCart(e, product) {
+        e.preventDefault()
+        props.addToCartMain(product)
+    }
+
     return (
         <div className="product-card">
             <div className="badge">Hot</div>
@@ -16,7 +25,7 @@ function Card({ product }) {
                     <div className="product-price"><small>$96.00</small>${product.price}</div>
                     <div className="product-links">
                         {/* <a href="#"><i className="fa fa-heart"></i></a> */}
-                        <button className="add-to-cart">Add To Cart</button>
+                        <button className="add-to-cart" onClick={e => addToCart(e, product)}>Add To Cart</button>
                     </div>
                 </div>
             </div>
@@ -24,4 +33,4 @@ function Card({ product }) {
     )
 }
 
-export default Card
+export default connect(null, { addToCartMain })(Card)

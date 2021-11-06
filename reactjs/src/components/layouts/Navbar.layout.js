@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import icons from '../../assets/images/sprite.svg';
 
 function Navbar() {
@@ -18,9 +19,9 @@ function Navbar() {
                     </div>
 
                     <div className="nav__logo">
-                        <a href="/js" className="scroll-link">
+                        <Link to="/" className="scroll-link">
                             SoftSensorAI
-                        </a>
+                        </Link>
                     </div>
 
                     <div className={`nav__menu ${isMobMenuOpen ? 'open' : null}`}>
@@ -39,9 +40,9 @@ function Navbar() {
 
                         <ul className="nav__list">
                             <li className="nav__item">
-                                <a href="#header" className="nav__link scroll-link">
+                                <Link to="/" className="nav__link scroll-link">
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav__item">
                                 <a href="#category" className="nav__link scroll-link">
@@ -75,12 +76,12 @@ function Navbar() {
                             </svg>
                         </a>
 
-                        <a href="#" className="icon__item">
+                        <Link to="/cart" className="icon__item">
                             <svg>
                                 <use xlinkHref={`${icons}#icon-shopping-basket`}></use>
                             </svg>
                             <span id="cart__total">0</span>
-                        </a>
+                        </Link>
                     </div>
                 </nav>
             </div>
