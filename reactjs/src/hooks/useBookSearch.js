@@ -13,7 +13,7 @@ function useBookSearch(pageNumber) {
         let cancel
         axios({
             method: 'GET',
-            url: 'http://localhost:4001/api/products/all',
+            url: '/api/products/all',
             params: { page: pageNumber },
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(ress => {
