@@ -24,7 +24,6 @@ function Card(props) {
                 <div className="product-bottom-details">
                     <div className="product-price"><small>$96.00</small>${product.price}</div>
                     <div className="product-links">
-                        {/* <a href="#"><i className="fa fa-heart"></i></a> */}
                         <button className="add-to-cart" onClick={e => addToCart(e, product)}>Add To Cart</button>
                     </div>
                 </div>
