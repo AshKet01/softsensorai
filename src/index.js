@@ -32,6 +32,8 @@ app.get('api/user', (req, res) => {
     return res.json(user_id)
 })
 
+app
+
 if (process.env.NODE_ENV === 'production') {
     //set static folder
     app.use(express.static('reactjs/build'));
