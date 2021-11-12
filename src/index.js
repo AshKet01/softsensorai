@@ -32,7 +32,10 @@ app.get('api/user', (req, res) => {
     return res.json(user_id)
 })
 
-app
+app.get('/api/product', (req, res) => {
+    const {prod_id} = req.query;
+    return res.json(prod_id);
+})
 
 if (process.env.NODE_ENV === 'production') {
     //set static folder
