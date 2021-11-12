@@ -34,6 +34,7 @@ app.get('api/user', (req, res) => {
 
 app.get('/api/product', (req, res) => {
     const {prod_id} = req.query;
+    //do something
     return res.json(prod_id);
 })
 
