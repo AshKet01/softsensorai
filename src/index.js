@@ -22,6 +22,7 @@ app.get('/api/products/all', async (req, res) => {
     return res.status(200).json(products)
 })
 
+
 app.get('something', (req, res) => {
     const name = 'nick';
     return res.json(name)
@@ -35,7 +36,7 @@ app.get('api/user', (req, res) => {
 app.get('/api/product', (req, res) => {
     const {prod_id} = req.query;
     //do something
-    return res.json(prod_id);
+    return res.json({message: 'okay products'});
 })
 
 if (process.env.NODE_ENV === 'production') {
